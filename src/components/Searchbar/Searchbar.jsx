@@ -20,6 +20,7 @@ export function Searchbar ({onSubmit}) {
  
     return (
       <header className={css.Searchbar}>
+         <button type="button" >Home</button><button type="button" >More</button>
     <form className={css.SearchForm} onSubmit={handleSubmit}>
       <button type="submit" className={css.SearchForm_button}>
         <span className={css.SearchForm_button_label}>Search</span>
