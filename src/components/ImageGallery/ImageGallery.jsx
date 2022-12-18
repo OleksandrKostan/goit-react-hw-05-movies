@@ -2,16 +2,16 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import propTypes from 'prop-types';
 import css from './ImageGallery.module.css';
 
-export const ImageGallery = ({ images, onClick }) => (
+export const ImageGallery = ({ movies, onClick }) => (
   <ul className={css.ImageGallery}>
-    {images.map((image, id) => (
-      <ImageGalleryItem onClick={onClick} image={image} key={id} />
+    {movies.map((movie, id) => (
+      <ImageGalleryItem onClick={onClick} movie={movie} key={id} />
     ))}
   </ul>
 );
 
 ImageGallery.propTypes = {
-  images: propTypes.arrayOf(
+  movies: propTypes.arrayOf(
     propTypes.shape({
       id: propTypes.number.isRequired,
     })

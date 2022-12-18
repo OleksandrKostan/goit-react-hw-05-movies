@@ -18,7 +18,7 @@ import { Loader } from '../Loader/Loader';
 
 
 export function App() {
-  const [images, setImages] = useState([ ]);
+  const [movies, setMovies] = useState([ ]);
   const [isLoading, setIsLoading] = useState(false);
   const [valueSearch, setValueSearch] = useState('');
   const [page, setPage] = useState(1);
@@ -30,25 +30,25 @@ export function App() {
    useEffect(() => {
   
     setIsLoading(true);
-    FetchTrending(1)
-      .then(searchImages => { setImages(prevState => [...prevState, ...searchImages]);
+    FetchTrending(page)
+      .then(trendingMovies => { setMovies(prevState => [...prevState, ...trendingMovies]);
       })
       .catch(error => {
         toast.error(`${error.message}`);
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [page]);
 
   
 
   const handleSubmit = valueSearch => {
     setValueSearch(valueSearch);
-    setImages([]);
+    setMovies([]);
     setPage(1);
   };
 
   const handleClickImage = e => {
-    setModal(true);
+   
     setImg(e.target.name);
     setAlt(e.target.alt);
   };
@@ -61,9 +61,9 @@ export function App() {
 
     return (<ThemeProvider theme={theme}> <GlobalStyle />
       <Searchbar onSubmit={handleSubmit} /><ToastContainer />
-       {images.length > 0 &&  <ImageGallery onClick={handleClickImage} images={images} />}
-       {isLoading && <Loader />}
-       {images.length > 0 && <Button onClick={() => {setPage(p => p + 1)}}  />}
+       {movies.length > 0 &&  <ImageGallery onClick={handleClickImage} movies={movies} />}
+       {/* {isLoading && <Loader />} */}
+       {/* {images.length > 0 && <Button onClick={() => {setPage(p => p + 1)}}  />} */}
        {/* {modal ? ( <Modal src={Img} alt={Alt} handleModalClose={handleModalClose}/>) : null} */}
    </ThemeProvider> );
   }

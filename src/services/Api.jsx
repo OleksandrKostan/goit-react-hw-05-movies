@@ -9,7 +9,7 @@ export async function FetchTrending (page,perPage) {
         params:
         {
            api_key: KEY,
-            perPage: 20,
+            perPage: 12,
             page,
         }    
     })
