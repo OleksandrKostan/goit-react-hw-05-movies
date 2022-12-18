@@ -1,22 +1,40 @@
 import axios from 'axios';
 
-export const Fetch = async (query, page, ) => {
-  const response = await axios.get('https://pixabay.com/api/', {
-    params: {
-      q: `${query}`,
-      page: `${page}`,
-      key: '30471998-a8edceaaf22ac8084f766fdc6',
-      image_type: 'photo',
-      orientation: 'horizontal',
-      per_page: 12,
-    },
-  });
-  const { hits } = response.data;
-  const data = hits.map(({ id, tags, webformatURL, largeImageURL }) => ({
-    id,
-    tags,
-    webformatURL,
-    largeImageURL,
-  }));
-  return data;
-};
+const KEY = "3a42e00052134f7762239baa2e36d5a3"
+
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
+
+export async function FetchTrending (page,perPage) {
+    const response = await axios('trending/movie/week',{
+        params:
+        {
+           api_key: KEY,
+            perPage: 20,
+            page,
+        }    
+    })
+    return response.data.results;
+}
+
+export async function FetchSerch(query, page) {
+    const response = await axios('search/movie', {
+        params:
+        {
+          api_key: KEY,
+            perPage: 20,
+            page: 1,
+            query:`${query}`,
+        }
+    })
+    return response.data.results;
+}
+
+export async function FetchMovieshId(movie_id) {
+  const response = await axios(`movie/${movie_id}`, {
+    params:
+    {
+      api_key: KEY,
+    }
+  })
+  return response.data;
+}

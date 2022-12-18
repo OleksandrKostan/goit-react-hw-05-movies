@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Searchbar } from '../Searchbar/Searchbar';
-import { Fetch } from 'services/Api';
+import { FetchTrending } from 'services/Api';
 import { ImageGallery } from '../ImageGallery/ImageGallery';
 import { Button } from '../Button/Button';
 import { Loader } from '../Loader/Loader';
@@ -28,22 +28,16 @@ export function App() {
  
  
    useEffect(() => {
-    if (!valueSearch) {
-      return;
-    }
+  
     setIsLoading(true);
-    Fetch(valueSearch, page)
-      .then(searchImages => {
-        if (searchImages.length === 0) {
-          toast.error(`Вибачте, по вашому запиту нічого не знайдено ;( `);
-        }
-        setImages(prevState => [...prevState, ...searchImages]);
+    FetchTrending(1)
+      .then(searchImages => { setImages(prevState => [...prevState, ...searchImages]);
       })
       .catch(error => {
         toast.error(`${error.message}`);
       })
       .finally(() => setIsLoading(false));
-  }, [valueSearch, page]);
+  }, []);
 
   
 
