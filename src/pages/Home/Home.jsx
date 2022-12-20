@@ -23,7 +23,7 @@ import { TrendingItem } from 'components/TrendingItem/TrendingItem';
 
   return (
     <>
-      {error && <p>Oops, some error:{error}</p>}
+      {error && <p>Опа, помилка:{error}</p>}
 
       <Section>
         <Title>Trending today</Title>

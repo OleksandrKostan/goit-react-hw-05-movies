@@ -49,7 +49,7 @@ const Movies = () => {
       )}
       {nothingFound && (
         <p style={{ marginLeft: '50px' }}>
-          Oops...Nothing was found.Try to enter something else.
+          Нічого не знайдено. Спробуйте ввести щось інше ;)
         </p>
       )}
 

@@ -11,7 +11,7 @@ export const SearchResults = ({ movies }) => {
 
   return (
     <>
-      <Title>Search results</Title>
+      <Title>Результати пошуку:</Title>
       <MovieSearchList>
         {movies.map(movie => (
           <MovieSearchItem key={movie.id}>

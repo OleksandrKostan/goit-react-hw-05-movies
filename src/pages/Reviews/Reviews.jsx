@@ -7,7 +7,7 @@ import { ReviewslList } from 'components/ReviewslList/ReviewslList';
 
 import { Section } from './Reviews.styled';
 
-// ======================Reviews========================
+
  const Reviews = () => {
   const [reviews, setMovieReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +30,7 @@ import { Section } from './Reviews.styled';
   return (
     <>
       {isLoading && <Loader />}
-      {error && <p>Oops, some error:{error}</p>}
+      {error && <p>Опа, помилка:{error}</p>}
 
       <Section>
         <ReviewslList reviews={reviews} />

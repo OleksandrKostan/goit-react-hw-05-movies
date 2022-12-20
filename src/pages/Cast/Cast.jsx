@@ -7,7 +7,7 @@ import { getMovieCredits } from 'servises/getMovieCredits';
 
 import { Section } from './Cast.styled';
 
-// =========================Cast======================
+
 const Cast = () => {
   const [credits, setCredits] = useState([]);
   const [isLoading, setIsLoading] = useState(false);

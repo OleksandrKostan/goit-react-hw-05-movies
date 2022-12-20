@@ -24,9 +24,9 @@ export const SearchForm = ({ setSearchParams }) => {
           type="text"
           name="searchInput"
           value={movieInput}
-          placeholder="Enter movie name"
+          placeholder="Введіть назву фільму"
         />
-        <Button>Search</Button>
+        <Button>Пошук</Button>
       </form>
     </>
   );

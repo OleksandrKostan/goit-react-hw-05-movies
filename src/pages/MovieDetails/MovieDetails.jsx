@@ -37,14 +37,14 @@ const MovieDetails = () => {
      
       <Section>
         {location.state ? (
-          <LinkBack to={backLinkHref}>Go back</LinkBack>
+          <LinkBack to={backLinkHref}>Назад</LinkBack>
         ) : (
-          <LinkBack to="/">Go back</LinkBack>
+          <LinkBack to="/">Назад</LinkBack>
         )}
 
         <WrapperDetails>
           {isLoading && <Loader />}
-          {error && <p>Oops, some error:{error}</p>}
+          {error && <p>Опа, помилка:{error}</p>}
 
           {movieDetails && (
             <AboutFilm
