@@ -27,10 +27,10 @@ export const LinkStyled = styled(NavLink)`
     color: black;
   }
 
-  :hover:not(:active),
+  /* :hover:not(:active),
   :focus-visible:not(:active) {
     color: #2196f3;
-  }
+  } */
 
   :not(:last-child) {
     margin-right: 20px;
@@ -38,6 +38,7 @@ export const LinkStyled = styled(NavLink)`
   :hover,
   :focus {
     background-color: #fff;
+    color: blue;
   }
 `;
 
