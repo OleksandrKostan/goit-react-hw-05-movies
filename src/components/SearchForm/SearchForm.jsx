@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Input, Button } from './SearchForm.styled';
+import { Form, Input, Button } from './SearchForm.styled';
 
 export const SearchForm = ({ setSearchParams }) => {
   const [movieInput, setMovieInput] = useState('');
@@ -18,7 +18,7 @@ export const SearchForm = ({ setSearchParams }) => {
 
   return (
     <>
-      <form onSubmit={onFormSubmit}>
+      <Form onSubmit={onFormSubmit}>
         <Input
           onChange={onInputChange}
           type="text"
@@ -27,7 +27,7 @@ export const SearchForm = ({ setSearchParams }) => {
           placeholder="Введіть назву фільму"
         />
         <Button>Пошук</Button>
-      </form>
+      </Form>
     </>
   );
 };
